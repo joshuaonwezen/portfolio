@@ -1,5 +1,5 @@
 import React from "react";
-import { PageArr } from "../../lib/pageInterface";
+import { PageArr } from "../../lib/interfaces/pageInterface";
 
 const Navbar = (props: any) => {
     const pages: PageArr = props.pages;
