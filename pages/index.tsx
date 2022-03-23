@@ -21,11 +21,13 @@ const Home: NextPage<HomeInterface> = (props: any) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="container">
-        <header>
+      <main className="container m-auto">
+        <nav>
           <Navbar pages={pages}/>
-        </header>
-        <ProjectList projects={projects}/>
+        </nav>
+        <article className="flex justify-center">
+          <ProjectList projects={projects}/>
+        </article>
       </main>
     </div>
   )

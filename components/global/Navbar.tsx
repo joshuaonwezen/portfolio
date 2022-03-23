@@ -43,6 +43,9 @@ const Navbar = (props: any) => {
                     ))}
                 </ul>
             </div>
+            <div className="navbar-end">
+                
+            </div>
         </div>
     );
 };

@@ -4,7 +4,7 @@ import { ProjectInterface } from "../../lib/projectInterface";
 const ProjectCard = (props: any) => {
     const project: ProjectInterface = props.project;
     return (
-        <div className="card lg:card-side bg-base-100 shadow-xl">
+        <div className="card lg:card-side bg-base-100 shadow-xl m-5">
             <figure>
                 <img
                     src="https://api.lorem.space/image/album?w=400&h=400"
