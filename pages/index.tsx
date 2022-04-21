@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import React, { useState } from 'react';
 import Head from 'next/head'
 import Navbar from '../components/global/Navbar'
 import { gql } from "@apollo/client";
@@ -9,9 +10,14 @@ import { ProjectArr } from '../lib/interfaces/projectInterface';
 import ProjectList from './projects/index'
 
 
-const Home: NextPage<HomeInterface> = (props: any) => {
-  const pages: PageArr = props.pages;
-  const projects: ProjectArr = props.projects;
+const Home: NextPage<HomeInterface> = ({pages, projects}: any) => {
+  const pageArr: PageArr = pages;
+  const projectArr: ProjectArr = projects;
+  const [pageState, setPageState] = useState({});
+  // setPageState(pageArr)
+  const [projectState, setProjectState] = useState({});
+  // setProjectState(projectArr)
+
 
   return (
     <div>
@@ -21,11 +27,13 @@ const Home: NextPage<HomeInterface> = (props: any) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="container">
-        <header>
+      <main className="container m-auto">
+        <nav>
           <Navbar pages={pages}/>
-        </header>
-        <ProjectList projects={projects}/>
+        </nav>
+        <article className="flex justify-center">
+          <ProjectList projects={projects}/>
+        </article>
       </main>
     </div>
   )
@@ -52,6 +60,7 @@ export async function getServerSideProps() {
         pages {
           title
           description
+          slug
         }
       }
     `,

@@ -3,14 +3,11 @@ import { ProjectInterface } from "../../lib/interfaces/projectInterface";
 
 const ProjectCard = (props: any) => {
     const project: ProjectInterface = props.project;
-    const index: number = props.index;
-    const categories: string[] = ["album", "movie", "game", "book"];
-    const imageCategory: string = categories[index];
     return (
-        <div className="card lg:card-side bg-base-100 shadow-xl">
+        <div className="card lg:card-side bg-base-100 shadow-xl m-5">
             <figure>
                 <img
-                    src={`https://api.lorem.space/image/${imageCategory}?w=400&h=400`}
+                    src="https://api.lorem.space/image/album?w=400&h=400"
                     alt="Project"></img>
             </figure>
             <div className="card-body">
