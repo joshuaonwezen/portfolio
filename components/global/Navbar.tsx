@@ -1,5 +1,6 @@
 import React from "react";
 import { PageArr } from "../../lib/interfaces/pageInterface";
+import Link from 'next/link'
 
 const Navbar = (props: any) => {
     const pages: PageArr = props.pages;
@@ -27,7 +28,7 @@ const Navbar = (props: any) => {
                         className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         {Object.entries(pages).map(([key, value]) => (
                             <li key={key}>
-                                <a>{value.title}</a>
+                                <Link href={`/${encodeURIComponent(value.slug)}`}><a>{value.title}</a></Link>
                             </li>
                         ))}
                     </ul>
@@ -38,13 +39,13 @@ const Navbar = (props: any) => {
                 <ul className="menu menu-horizontal p-0">
                     {Object.entries(pages).map(([key, value]) => (
                         <li key={key}>
-                            <a>{value.title}</a>
+                            <Link href={`/${encodeURIComponent(value.slug)}`}><a>{value.title}</a></Link>
                         </li>
                     ))}
                 </ul>
             </div>
             <div className="navbar-end">
-                
+
             </div>
         </div>
     );
