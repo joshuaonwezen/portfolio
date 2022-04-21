@@ -3,12 +3,14 @@ import { ProjectInterface } from "../../lib/interfaces/projectInterface";
 
 const ProjectCard = (props: any) => {
     const project: ProjectInterface = props.project;
-    console.log(props)
+    const index: number = props.index;
+    const categories: string[] = ["album", "movie", "game", "book"];
+    const imageCategory: string = categories[index];
     return (
         <div className="card lg:card-side bg-base-100 shadow-xl">
             <figure>
                 <img
-                    src={props.image}
+                    src={`https://api.lorem.space/image/${imageCategory}?w=400&h=400`}
                     alt="Project"></img>
             </figure>
             <div className="card-body">
@@ -46,18 +48,5 @@ const ProjectCard = (props: any) => {
         </div>
     );
 };
-
-export async function getStaticProps() {
-    const categories: string[] = ["album", "movie", "game", "book"];
-    const imageCategory: string =
-        categories[Math.floor(Math.random() * categories.length)];
-    const image = `https://api.lorem.space/image/${imageCategory}?w=400&h=400`
-
-    return {
-        props: {
-            image: image
-        }
-    }
-}
 
 export default ProjectCard;
